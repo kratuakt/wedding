@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proud & Kratua's Wedding</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      height: 100%;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    .hero {
+      background: url('your-photo.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.5em;
+    }
+    .countdown {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .details {
+      padding: 2em;
+      background-color: #f9e6b3;
+      color: #5c4400;
+      text-align: center;
+    }
+    .details h2 {
+      color: #a88d34;
+    }
+    .map iframe, .rsvp iframe {
+      width: 90%;
+      max-width: 600px;
+      height: 400px;
+      border: 2px solid #e8d48b;
+      border-radius: 10px;
+    }
+    footer {
+      background: #f9e6b3;
+      padding: 1em;
+      color: #333;
+    }
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+    .nav-item {
+      text-align: center;
+      font-size: 0.8em;
+      color: #6b4e1d;
+      text-decoration: none;
+    }
+    .nav-item i {
+      font-size: 1.5em;
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXJ8z2S9J9b8zRNoA5K4aV2+g7CyTzEG4R5tA3qqo6W6n5A9YXJf7H5R6c6mlZJ7Y9sMbV3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="hero" id="invitation">
+    <h1>Proud & Kratua</h1>
+    <p>Saturday, August 2, 2025</p>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <div class="details" id="itinerary">
+    <h2>Event Details</h2>
+    <p>📍 Graph Hotel Ratchada, Bangkok</p>
+    <p>⏰ Ceremony starts at 4:00 PM</p>
+  </div>
+
+  <div class="details map" id="venue">
+    <h2>Location</h2>
+    <iframe src="https://maps.google.com/maps?q=graph%20hotel%20ratchada&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+  </div>
+
+  <div class="details rsvp" id="gallery">
+    <h2>RSVP</h2>
+    <p>Please let us know if you can join us:</p>
+    <p><a href="https://forms.gle/your_actual_form_id" target="_blank" style="color:#5c4400;text-decoration:underline;font-weight:bold;">Click here to RSVP</a></p>
+  </div>
+
+  <footer>
+    <p>With love, Proud & Kratua</p>
+    <p>#OurWedding2025</p>
+  </footer>
+
+  <div class="navbar">
+    <a href="#invitation" class="nav-item">
+      <i class="fas fa-envelope"></i>
+      INVITATIONS
+    </a>
+    <a href="#itinerary" class="nav-item">
+      <i class="fas fa-calendar-alt"></i>
+      ITINERARY
+    </a>
+    <a href="#gallery" class="nav-item">
+      <i class="fas fa-images"></i>
+      GALLERY
+    </a>
+    <a href="#venue" class="nav-item">
+      <i class="fas fa-map-marker-alt"></i>
+      VENUE
+    </a>
+  </div>
+
+  <script>
+    const countdown = document.getElementById('countdown');
+    const weddingDate = new Date("August 2, 2025 16:00:00").getTime();
+
+    const interval = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "🎉 The wedding has started! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until the celebration 🎊`;
+    }, 1000);
+  </script>
+</body>
+</html>
