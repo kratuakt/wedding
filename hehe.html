@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proud & Kratua's Wedding</title>
 
@@ -14,15 +13,9 @@
 
   <style>
     @font-face {
-      font-family: 'Baby_garland';
-      src: url('fonts/Baby_garland.ttf') format('truetype');
-    }
-    
-    @font-face {
       font-family: 'Romance_Delighter';
       src: url('fonts/Romance_Delighter.ttf') format('truetype');
     }
-
 
     html, body {
       margin: 0;
@@ -34,29 +27,20 @@
     }
 
     .hero {
-    position: relative;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-    overflow: hidden;
-    background-color: #fff8e1;
-    }
-
-
-    .hero > * {
-    position: relative;
-    z-index: 2;
+      background: url('your-photo.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     }
 
     .hero h1 {
-      font-family: 'Baby_garland', cursive;
+      font-family: 'Romance_Delighter', cursive;
       font-size: 8em;
       margin: 0;
-      font-weight: normal;  
     }
 
     .hero p {
@@ -65,10 +49,12 @@
 
     .countdown {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
       gap: 15px;
+      overflow-x: auto;
       padding: 10px;
+      scroll-snap-type: x mandatory;
     }
 
     .countdown-box {
@@ -78,6 +64,8 @@
       color: #fff;
       text-align: center;
       min-width: 120px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
     }
 
     .countdown-box .number {
@@ -90,6 +78,11 @@
     }
 
     @media (max-width: 720px) {
+      .countdown {
+        flex-wrap: wrap;
+        overflow-x: unset;
+        justify-content: center;
+      }
       .hero h1 {
         font-size: 3em;
       }
@@ -100,7 +93,11 @@
       text-align: center;
     }
 
-    .details, .rsvp {
+    .details {
+      background-color: #fce8b5;
+    }
+
+    .rsvp {
       background-color: #fce8b5;
     }
 
@@ -133,7 +130,6 @@
     .swiper {
       width: 100%;
       padding: 20px 0;
-      padding-bottom: 50px;
     }
 
     .swiper-slide {
@@ -202,26 +198,9 @@
         opacity: 0;
       }
     }
-
-    .color-palette {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 1em;
-    }
-
-    .color-swatch {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #e0c38c;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
   </style>
 </head>
 <body>
-
-
 
   <!-- Petals -->
   <script>
@@ -235,15 +214,9 @@
       document.body.appendChild(petal);
     }
   </script>
-<div style="position: relative; margin-bottom: -40px;">
-  <img src="album/p11.jpg" alt="Top Banner" style="width: 100%; height: auto; display: block; margin-bottom: -2px;" />
-  <svg viewBox="0 0 1440 100" style="display: block;" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#fff8e1" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
-  </svg>
-</div>
 
   <div class="hero" id="invitation" data-aos="fade-up">
-    <h1>Proud + Kratua</h1>
+    <h1>Proud & Kratua</h1>
     <p>Saturday, August 2, 2025</p>
     <div class="countdown">
       <div class="countdown-box"><div class="number" id="days">00</div><div class="label">Days</div></div>
@@ -253,45 +226,18 @@
     </div>
   </div>
 
-<div style="position: relative; margin-bottom: -40px;">
-  <img src="album/p10.jpg" alt="Top Banner" style="width: 100%; height: auto; display: block; margin-bottom: -2px;" />
-  <svg viewBox="0 0 1440 100" style="display: block;" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#fff8e1" d="M0,0 C480,100 960,0 1440,100 L1440,0 L0,0 Z"></path>
-  </svg>
-</div>
-
-<div style="text-align: center; font-size: 1.1em; margin-top: 40px; margin-bottom: 20px;">
-  <p>
-    <strong>🎶 Before scrolling down, please play the music.</strong><br>
-    ก่อนที่จะเลื่อนลงไป กดเล่นเพลงฟังไปด้วยนะคะ
-  </p>
-</div>
-<div style="text-align: center; margin-bottom: 40px;"> 
-  <button id="music-toggle" style="background-color: #e0c38c; color: #fff; border: none; padding: 10px 20px; font-size: 16px; border-radius: 8px; cursor: pointer;">
-    🔊 Play Music
-  </button>
-</div>
-
-<div class="details" id="itinerary" data-aos="fade-up">
-  <h2>Event Details</h2>
-  <p>📍 Graph Hotel Ratchada, Bangkok</p>
-  <p>⏰ Ceremony starts at 4:00 PM</p>
-
-  <div class="dressing-code">
-    <h3 style="margin-top: 1.5em;">🎨 Dressing Code</h3>
-    <p>Please wear tones inspired by our wedding colors:</p>
-    <div class="color-palette">
-      <div class="color-swatch" style="background-color: #8B5E56;" title="#8B5E56"></div>
-      <div class="color-swatch" style="background-color: #A97463;" title="#A97463"></div>
-      <div class="color-swatch" style="background-color: #BC8A7E;" title="#BC8A7E"></div>
-      <div class="color-swatch" style="background-color: #EDC9A4;" title="#EDC9A4"></div>
-      <div class="color-swatch" style="background-color: #C8961E;" title="#C8961E"></div>
-    </div>
+  <div style="text-align: center; font-size: 1.1em; margin-top: 40px;">
+    <p><strong>🎶 Before scrolling down, please play the music.<br>ก่อนที่จะเลื่อนลงไป กดเล่นเพลงฟังไปด้วยนะคะ</strong></p>
+    <button id="music-toggle" style="background-color: #e0c38c; color: #fff; border: none; padding: 10px 20px; font-size: 16px; border-radius: 8px; cursor: pointer;">
+      🔊 Play Music
+    </button>
   </div>
-</div>
 
-
-  
+  <div class="details" id="itinerary" data-aos="fade-up">
+    <h2>Event Details</h2>
+    <p>📍 Graph Hotel Ratchada, Bangkok</p>
+    <p>⏰ Ceremony starts at 4:00 PM</p>
+  </div>
 
   <div class="details map" id="venue" data-aos="fade-up">
     <h2>Location</h2>
@@ -323,32 +269,22 @@
     </div>
   </div>
 
-
-  <div class="rsvp" id="rsvp" data-aos="fade-up" style="background-color: #fefaf5; padding: 3em 1em; border-radius: 20px; max-width: 800px; margin: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-  <h2 style="font-size: 2.5em; margin-bottom: 0.5em; font-family: 'Romance_Delighter', cursive;">R.S.V.P</h2>
-  <p style="color: #5c3a00; font-size: 1em; margin: 0.5em 0; font-weight: 600;">คำตอบของคุณมีความหมายกับเรา 🥰</p>
-  <hr style="width: 60%; border: none; border-top: 1px solid #ccc; margin: 1em auto;"/>
-  <p style="color: #5c3a00; font-size: 0.95em;">Please help us prepare a warm and memorable celebration by letting us know if you’ll attend.</p>
-  <p style="color: #5c3a00; font-size: 0.95em; line-height: 1.6;">
- เพื่อให้เราสามารถเตรียมงานได้อย่างลงตัว<br>กรุณาตอบแบบฟอร์มเข้าร่วมงานล่วงหน้า
-  </p>
-  <a href="https://forms.gle/qj879Wtw4n695cmn8" target="_blank" style="display: inline-block; margin-top: 20px; background-color: #c8a97e; color: white; padding: 12px 25px; border-radius: 10px; font-size: 1em; text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-     💌 RSVP : ตอบรับเข้าร่วมงาน
-  </a>
+  <div class="rsvp" id="rsvp" data-aos="fade-up">
+    <h2>RSVP</h2>
+    <p>Please let us know if you can join us:</p>
+    <p><a href="https://forms.gle/your_actual_form_id" target="_blank" style="color:#5c3a00;text-decoration:underline;font-weight:bold;">Click here to RSVP</a></p>
   </div>
-
 
   <footer>
     <p>With love, Proud & Kratua</p>
-    <p>#ProudKratua2025</p>
+    <p>#OurWedding2025</p>
   </footer>
 
   <div class="navbar">
     <a href="#invitation" class="nav-item"><i class="fas fa-envelope"></i>INVITATIONS</a>
-    <!-- <a href="#itinerary" class="nav-item"><i class="fas fa-calendar-alt"></i>ITINERARY</a> -->
-    <a href="#venue" class="nav-item"><i class="fas fa-map-marker-alt"></i>VENUE</a>
+    <a href="#itinerary" class="nav-item"><i class="fas fa-calendar-alt"></i>ITINERARY</a>
     <a href="#gallery" class="nav-item"><i class="fas fa-images"></i>GALLERY</a>
-
+    <a href="#venue" class="nav-item"><i class="fas fa-map-marker-alt"></i>VENUE</a>
   </div>
 
   <audio id="bg-music" loop>
@@ -408,6 +344,5 @@
       }
     });
   </script>
-  
 </body>
 </html>
