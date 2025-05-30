@@ -175,6 +175,16 @@
       font-size: 1.5em;
     }
 
+    
+
+    @media (max-width: 480px) {
+    footer {
+      font-size: 0.95em;
+      padding-top: 2em;
+      padding-bottom: 7em; 
+      }
+    }
+
     .navbar {
       position: fixed;
       bottom: 0;
@@ -391,7 +401,6 @@
     <div class="color-palette">
       <div class="color-swatch" style="background-color: #8B5E56;" title="#8B5E56"></div>
       <div class="color-swatch" style="background-color: #A97463;" title="#A97463"></div>
-<!--       <div class="color-swatch" style="background-color: #AB8473;" title="#AB8473"></div> -->
       <div class="color-swatch" style="background-color: #D6AA71;" title="#D6AA71"></div>
       <div class="color-swatch shiny-gold" style="background-color: #C8961E;" title="#C8961E"></div>
     </div>
@@ -478,10 +487,13 @@
   </div>
 
 
-  <footer>
-    <p>With love <br>Proud & Kratua</p>
-    <p>#ProudKratua2025</p>
-  </footer>
+<footer>
+  <div style="max-width: 300px; margin: auto; text-align: center;">
+    <p style="margin: 0;">With love</p>
+    <p style="margin: 0; font-weight: bold;">Proud & Kratua</p>
+    <p style="margin-top: 10px; font-size: 0.95em; color: #5c3a00;">#ProudKratua2025</p>
+  </div>
+</footer>
 
   <div class="navbar">
     <a href="#invitation" class="nav-item"><i class="fas fa-envelope"></i>INVITATIONS</a>
@@ -534,19 +546,24 @@
       }
     });
 
-    new Swiper('.swiper', {
-      slidesPerView: 3,
-      spaceBetween: 20,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      breakpoints: {
-        0: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        960: { slidesPerView: 3 }
-      }
-    });
+  new Swiper('.swiper', {
+  slidesPerView: 3,
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 1500, // 1 second
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    640: { slidesPerView: 2 },
+    960: { slidesPerView: 3 }
+  }
+});
   </script>
   
 
