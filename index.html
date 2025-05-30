@@ -11,6 +11,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
 
   <style>
     @font-face {
@@ -231,14 +233,15 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #e0c38c;
+    border: 2px solid #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
     }
 
     .schedule-section {
       text-align: center;
       background-color: #fce8b5;
-      padding: 3em 1em;
+      /* padding: 3em 1em; */
     }
 
     .section-title {
@@ -276,7 +279,48 @@
     button {
       font-family: 'TH_Niramit_AS', 'Lora', sans-serif;
     }
+    
+    .details, .schedule-section, .rsvp  {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
 
+      .gallery  {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .shiny-gold {
+    background: linear-gradient(135deg, #d4af37, #f6e27a, #d4af37);
+    background-size: 400% 400%;
+    animation: shimmer 2s linear infinite;
+    /* box-shadow: 0 0 5px #f6e27a, 0 0 15px #d4af37; */
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
   </style>
 </head>
 <body>
@@ -295,6 +339,8 @@
       document.body.appendChild(petal);
     }
   </script>
+
+  
 <div style="position: relative; margin-bottom: -40px;">
   <img src="album/p3.jpg" alt="Top Banner" style="width: 100%; height: auto; display: block; margin-bottom: -2px;" />
   <svg viewBox="0 0 1440 100" style="display: block;" xmlns="http://www.w3.org/2000/svg">
@@ -340,13 +386,14 @@
   <div class="dressing-code">
     <h3 style="margin-top: 1.5em;">🎨 Dressing Code</h3>
     <p>Please wear tones inspired by our wedding colors </p>
-    <p style="font-size: 0.7em;"> Brown Cream Gold</p>
+    <p style="font-size: 0.7em;">Need help choosing? Think: Mocha, Cream, or Gold tones.</p>
+
     <div class="color-palette">
       <div class="color-swatch" style="background-color: #8B5E56;" title="#8B5E56"></div>
       <div class="color-swatch" style="background-color: #A97463;" title="#A97463"></div>
 <!--       <div class="color-swatch" style="background-color: #AB8473;" title="#AB8473"></div> -->
-      <div class="color-swatch" style="background-color: #EDC9A4;" title="#EDC9A4"></div>
-      <div class="color-swatch" style="background-color: #C8961E;" title="#C8961E"></div>
+      <div class="color-swatch" style="background-color: #c3b091;" title="#ffe4c4"></div>
+      <div class="color-swatch shiny-gold" style="background-color: #C8961E;" title="#C8961E"></div>
     </div>
   </div>
 </div>
@@ -392,33 +439,32 @@
     <h2>Gallery</h2>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <!-- Add 15 images here -->
-        <div class="swiper-slide"><img src="album/1.jpg" alt="1" /></div>
-        <div class="swiper-slide"><img src="album/2.jpg" alt="2" /></div>
-        <div class="swiper-slide"><img src="album/3.jpg" alt="3" /></div>
-        <div class="swiper-slide"><img src="album/4.jpg" alt="4" /></div>
-        <div class="swiper-slide"><img src="album/5.jpg" alt="5" /></div>
-        <div class="swiper-slide"><img src="album/6.jpg" alt="6" /></div>
-        <div class="swiper-slide"><img src="album/7.jpg" alt="7" /></div>
-        <div class="swiper-slide"><img src="album/8.jpg" alt="8" /></div>
-        <div class="swiper-slide"><img src="album/9.jpg" alt="9" /></div>
-        <div class="swiper-slide"><img src="album/10.jpg" alt="10" /></div>
-        <div class="swiper-slide"><img src="album/10.5.jpg" alt="10" /></div>
-        <div class="swiper-slide"><img src="album/11.jpg" alt="11" /></div>
-        <div class="swiper-slide"><img src="album/12.jpg" alt="12" /></div>
-        <div class="swiper-slide"><img src="album/13.jpg" alt="13" /></div>
-        <div class="swiper-slide"><img src="album/14.jpg" alt="14" /></div>
-        <div class="swiper-slide"><img src="album/15.jpg" alt="15" /></div>
-        <div class="swiper-slide"><img src="album/16.jpg" alt="16" /></div>
-        <div class="swiper-slide"><img src="album/17.jpg" alt="17" /></div>
-        <div class="swiper-slide"><img src="album/18.jpg" alt="18" /></div>
+        <div class="swiper-slide"><a href="album/1.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/1.jpg" alt="1" /></a></div>
+        <div class="swiper-slide"><a href="album/2.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/2.jpg" alt="2" /></a></div>
+        <div class="swiper-slide"><a href="album/3.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/3.jpg" alt="3" /></a></div>
+        <div class="swiper-slide"><a href="album/4.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/4.jpg" alt="4" /></a></div>
+        <div class="swiper-slide"><a href="album/5.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/5.jpg" alt="5" /></a></div>
+        <div class="swiper-slide"><a href="album/6.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/6.jpg" alt="6" /></a></div>
+        <div class="swiper-slide"><a href="album/7.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/7.jpg" alt="7" /></a></div>
+        <div class="swiper-slide"><a href="album/8.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/8.jpg" alt="8" /></a></div>
+        <div class="swiper-slide"><a href="album/9.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/9.jpg" alt="9" /></a></div>
+        <div class="swiper-slide"><a href="album/10.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/10.jpg" alt="10" /></a></div>
+        <div class="swiper-slide"><a href="album/10.5.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/10.5.jpg" alt="10.5" /></a></div>
+        <div class="swiper-slide"><a href="album/11.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/11.jpg" alt="11" /></a></div>
+        <div class="swiper-slide"><a href="album/12.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/12.jpg" alt="12" /></a></div>
+        <div class="swiper-slide"><a href="album/13.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/13.jpg" alt="13" /></a></div>
+        <div class="swiper-slide"><a href="album/14.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/14.jpg" alt="14" /></a></div>
+        <div class="swiper-slide"><a href="album/15.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/15.jpg" alt="15" /></a></div>
+        <div class="swiper-slide"><a href="album/16.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/16.jpg" alt="16" /></a></div>
+        <div class="swiper-slide"><a href="album/17.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/17.jpg" alt="17" /></a></div>
+        <div class="swiper-slide"><a href="album/18.jpg" class="glightbox" data-gallery="wedding-gallery"><img src="album/18.jpg" alt="18" /></a></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </div>
 
 
-  <div class="rsvp" id="rsvp" data-aos="fade-up" style="background-color: #fefaf5; padding: 3em 1em; border-radius: 20px; max-width: 800px; margin: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+  <div class="rsvp" id="rsvp" data-aos="fade-up">
   <h2 style="font-size: 2.5em; margin-bottom: 0.5em; font-family: 'Romance_Delighter', cursive;">R.S.V.P</h2>
   <p lang="th" style="color: #5c3a00; font-size: 2em; margin: 0.5em 0; font-weight: 600;">คำตอบของคุณมีความหมายกับเรา 🥰</p>
   <hr style="width: 60%; border: none; border-top: 1px solid #ccc; margin: 1em auto;"/>
@@ -503,5 +549,13 @@
     });
   </script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+</script>
+
 </body>
 </html>
