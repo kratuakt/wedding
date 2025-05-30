@@ -269,6 +269,22 @@
       flex-wrap: wrap;
     }
 
+    @media (max-width: 540px) {
+    .schedule-items {
+      /* flex-wrap: nowrap; */
+      overflow-x: auto;
+      justify-content: flex-center;
+      padding: 0 1em;
+      align-content: space-around;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .schedule-item {
+      flex: 0 0 auto;
+      }
+    }
+
     .schedule-item {
       max-width: 150px;
     }
