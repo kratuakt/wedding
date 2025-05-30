@@ -87,47 +87,42 @@
     }
 
 
-    .countdown {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 10px;
-    }
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 500px;
+}
 
-    
-    .countdown-box {
-      background-color: #e0c38c;
-      border-radius: 20px;
-      padding: 20px;
-      color: #fff;
-      text-align: center;
-      flex: 1 1 120px;
-      max-width: 160px;
-      min-width: 120px;
-      box-sizing: border-box;
-      border: 2px solid white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    }
+.countdown-box {
+  background-color: #e0c38c;
+  border-radius: 16px;
+  padding: 16px 10px;
+  color: #fff;
+  text-align: center;
+  min-width: 110px;
+  flex: 0 0 35%; /* This lets it go 2-per-row */
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    /* Responsive: 2 per row on screens < 600px */
-    @media (max-width: 600px) {
-      .countdown-box {
-        flex: 1 1 calc(50% - 30px);
-        max-width: calc(50% - 30px);
-      }
-    }
+.countdown-box .number {
+  font-size: 1.8em;
+  font-weight: bold;
+}
 
-    .countdown-box .number {
-      font-size: 2em;
-      font-weight: bold;
-      display: block;
-    }
+.countdown-box .label {
+  font-size: 0.95em;
+}
 
-    .countdown-box .label {
-      font-size: 0.9em;
-      display: block;
-    }
+@media (min-width: 768px) {
+  .countdown-box {
+    flex: 1 1 30%; /* 4 boxes per row */
+  }
+}
 
     @media (max-width: 720px) {
       .hero h1 {
@@ -401,7 +396,7 @@
 </div>
 
   <div class="hero" id="invitation" data-aos="fade-up">
-  <p style="font-size: 1.1em; margin: 10px 0;">
+  <p style="font-size: 1.1em; margin: 10px 0;  margin-top: 30px;">
     We are so happy to invite you to share the joy and happiness of our wedding day
   </p>
   <h1>Proud + Kratua</h1>
